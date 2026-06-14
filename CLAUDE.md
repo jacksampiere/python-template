@@ -29,6 +29,8 @@ Do not proceed with any other work until these steps are complete.
 
 ## Task Observer (meta-skill)
 
+Note: this requires `.claude/skills/task-observer/` and refers to a local skill installed via symlink (not committed). Source: https://github.com/rebelytics/one-skill-to-rule-them-all
+
 At the start of any task-oriented session — any interaction where you will use
 tools and produce deliverables — invoke the task-observer skill before beginning
 work. This ensures skill improvement opportunities are captured throughout the
