@@ -23,7 +23,7 @@ clone from the template. Complete setup before any other work:
 4. Run `uv sync` to update the lockfile after any dependencies changes.
 5. Run `bash scripts/setup-claude.sh` to wire up task-observer.
 6. Run `pre-commit install` to wire up pre-commit hooks.
-7. Remove this entire "Template setup" section from `CLAUDE.md`, along with the "Using this template" and "Claude setup" sections in `README.md`.
+7. Delete `scripts/setup-claude.sh` and the `scripts/` directory. Remove this entire "Template setup" section from `CLAUDE.md`, along with the "Using this template" and "Claude setup" sections in `README.md`.
 
 Do not proceed with any other work until these steps are complete.
 
