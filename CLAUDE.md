@@ -14,8 +14,12 @@ clone from the template. Complete setup before any other work:
       - `pyproject.toml` description should be a short one-liner, not the full description
    - Rename the `my_project/` directory to the project name (snake case)
 3. If no tests: remove `pytest` from dev dependencies in `pyproject.toml`, delete `tests/`,
-   remove `[tool.pytest.ini_options]` from `pyproject.toml`, and remove the
-   `pytest` step from `.github/workflows/ci.yml`.
+   remove `[tool.pytest.ini_options]` from `pyproject.toml`, remove the
+   `pytest` step from `.github/workflows/ci.yml`, remove the "Run tests" row
+   from the Common commands table in `CLAUDE.md`, remove the "Tests live in
+   `tests/`..." line from the Conventions section in `CLAUDE.md`, and remove
+   the "Run tests" row and the "pytest" mention from the commands table and
+   CI note in `README.md`.
 4. Run `uv sync` to update the lockfile after any dependencies changes.
 5. Run `bash scripts/setup-claude.sh` to wire up task-observer.
 6. Run `pre-commit install` to wire up pre-commit hooks.
