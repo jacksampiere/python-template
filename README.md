@@ -1,40 +1,42 @@
-# BioLENS
+# my_project
 
-This repository implements the MVP described in the paper "Towards Transparent Embeddings for Biomarker Discovery": encode EEG recordings, z-score and PCA1-project embeddings, fit a cubic B-spline over ordered outcomes, evaluate constraints (proximity, monotonicity, reproducibility) plus fit adequacy vs. a null MSE, and train a constraint-aware encoder.
+<brief project description>
 
-There are six primary scripts:
-- `main.py` — entrypoint; runs the MVP using synthetic data and prints key metrics
-- `embed.py` — functions to generate embeddings from raw signals, preprocess, and project
-- `spline.py` — functions to fit a cubic spline and extract key characteristics
-- `constraints.py` — functions to evaluate constraints
-- `constants.py` — constants used in the MVP
-- `train_constraint_aware_encoder.py` - Lightning implementation of the constraint-aware learning framework (Section 4.4) with synthetic data
+## Using this template
 
-The code to generate figures can be found in the `figures/` subdirectory.
+Open Claude Code and say "set up this repo from the template" — Claude will handle everything  automatically. Alternatively, follow the steps below:
 
-## Running the code
+1. Replace `my_project` throughout `README.md`, `CLAUDE.md`, and `pyproject.toml`, and rename the `my_project/` directory
+2. Replace `<brief project description>` in `README.md`, `CLAUDE.md`, and `pyproject.toml`
+3. Run `bash scripts/setup-claude.sh` to wire up task-observer (see below)
 
- Install uv:
- ```shell
+## Claude setup
+
+This repo uses [task-observer](https://github.com/rebelytics/one-skill-to-rule-them-all) — a meta-skill that runs silently during Claude Code sessions, logs skill improvement opportunities to a central store, and applies them in periodic reviews. Over time, it builds a self-improving skill library that carries across every repo you work in.
+
+The `CLAUDE.md` block activates it at the start of each session. To wire it into a new repo cloned from this template, run `bash scripts/setup-claude.sh` (requires the central store to already exist — see the task-observer repo for first-time setup).
+
+## Setup
+
+Install uv:
+```shell
 curl -LsSf https://astral.sh/uv/install.sh | sh
- ```
-
-Environment setup:
-
-```shell
-uv venv .venv
-uv sync
-source .venv/bin/activate
 ```
 
-Run the scripts:
-
+Install dependencies and activate:
 ```shell
-# MVP
-python main.py
-python train_constraint_aware_encoder.py
-
-# Generate figures
-cd figures
-python figure_1.py
+uv sync && source .venv/bin/activate
 ```
+
+Wire up pre-commit hooks:
+```shell
+pre-commit install
+```
+
+Ruff and pytest are enforced by CI on push and PRs to main:
+
+| Task | Command |
+|------|---------|
+| Run tests | `uv run pytest` |
+| Lint | `uv run ruff check .` |
+| Format | `uv run ruff format .` |
